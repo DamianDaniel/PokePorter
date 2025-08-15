@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PokéPorter — Entertaining Guide to Transferring Pokémon Across Generations</title>
+  <meta name="description" content="An interactive, playful website that shows you how to transfer Pokémon between generations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <noscript>
+    <div class="no-js">This site is interactive. Please enable JavaScript to enjoy PokéPorter!</div>
+  </noscript>
+
+  <header class="site-header" role="banner">
+    <div class="logo">
+      <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0%" stop-color="#ff3355"/>
+            <stop offset="100%" stop-color="#ffd166"/>
+          </linearGradient>
+        </defs>
+        <circle cx="256" cy="256" r="240" fill="url(#g1)"/>
+        <circle cx="256" cy="256" r="180" fill="white" opacity="0.9"/>
+        <circle cx="256" cy="256" r="48" fill="#222"/>
+        <rect x="16" y="240" width="480" height="32" rx="16" ry="16" fill="#222"/>
+      </svg>
+      <div class="wordmark">
+        <span class="title">PokéPorter</span>
+        <span class="subtitle">Transfer paths, visualized.</span>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#planner">Route Planner</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#minigame">Mini‑game</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Intro">
+      <h1 class="introtext">Transfer your Pokémon, without  the problems.</h1>
+      <p class="lede">Pick your <strong>from</strong> generation and your <strong>to</strong> generation. We’ll conjure a lively, step‑by‑step route with animations, requirements, and gotchas.</p>
+    </section>
+
+    <section id="planner" class="panel planner" aria-labelledby="planner-heading">
+      <h2 id="planner-heading">Route Planner</h2>
+      <div class="planner-controls">
+        <label class="field">
+          <span>From generation</span>
+          <select id="fromGen" aria-label="From generation"></select>
+        </label>
+        <div class="swap" role="button" id="swapBtn" aria-label="Swap generations" title="Swap">
+          ⇄
+        </div>
+        <label class="field">
+          <span>To generation</span>
+          <select id="toGen" aria-label="To generation"></select>
+        </label>
+        <button id="planBtn" class="primary">Plan Route</button>
+      </div>
+      <div class="summary" id="planSummary" aria-live="polite"></div>
+    </section>
+
+    <section id="timeline" class="panel timeline" aria-labelledby="timeline-heading">
+      <h2 id="timeline-heading">Route</h2>
+      <div id="timelineTrack" class="timeline-track" aria-live="polite"></div>
+      <div class="legend">
+        <span class="chip step">Step - </span>
+        <span class="chip requirement">Requirement - </span>
+        <span class="chip caution">Caution</span>
+      </div>
+    </section>
+
+    <section id="minigame" class="panel minigame" aria-labelledby="minigame-heading">
+      <h2 id="minigame-heading">Mini‑game: <span class="mono">Transfer Blocks</span></h2>
+      <p>Drag steps onto the conveyor in the correct order to score. Great for memorizing the flow!</p>
+      <div class="minigame-ui">
+        <div id="cardPool" class="card-pool" aria-label="Available steps"></div>
+        <div id="conveyor" class="conveyor" aria-label="Conveyor drop zone"></div>
+      </div>
+      <div class="score" id="scoreArea" aria-live="polite">Score: 0</div>
+      <button id="resetGame" class="ghost">Reset game</button>
+    </section>
+
+    <section id="faq" class="panel faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading">FAQ</h2>
+      <details>
+        <summary>Is this official guidance?</summary>
+        <p>No. This site is a playful, educational visualization. Steps can vary by game/version/region and may change over time. Always cross‑check with official documentation.</p>
+      </details>
+      <details>
+        <summary>What are the rules of moving Pokémon forward?</summary>
+        <ul>
+          <li>Once moved to modern services, transfers are typically <strong>one‑way</strong>.</li>
+          <li>Some Pokémon, forms, moves, ribbons, or origin marks can change or be incompatible.</li>
+          <li>You’ll often need subscriptions or apps like <em>Pokémon Bank</em>, <em>Poké Transporter</em>, and <em>Pokémon HOME</em>.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Accessibility</summary>
+        <p>The UI is keyboard navigable. All interactive elements have ARIA labels, and animations respect reduced‑motion settings.</p>
+      </details>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Pokémon and related trademarks are property of their respective owners.</p>
+    <div class="social">
+    </div>
+  </footer>
+
+  <div id="confetti" aria-hidden="true"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
